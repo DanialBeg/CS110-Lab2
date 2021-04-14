@@ -3,5 +3,6 @@ const y = 'Y';
 const counter = 0;
 
 function one(){
-    document.write('X')
+    var choice = document.getElementsByClassName('xo');
+    choice.innerHTML = "X";
 };
