@@ -10,9 +10,17 @@ var seen7 = false;
 var seen8 = false;
 var seen9 = false;
 
+function checkWin(){
+
+};
+
 function one(){
     var choice = document.getElementById('xo1');
     var turn = document.getElementById('turn');
+
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
@@ -37,6 +45,10 @@ function two(){
     var choice = document.getElementById('xo2');
     var turn = document.getElementById('turn');
 
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
+
     if(counter%2 == 0){
         choice.innerHTML = "X";
         turn.innerHTML = "O";
@@ -58,6 +70,10 @@ function two(){
 function three(){
     var choice = document.getElementById('xo3');
     var turn = document.getElementById('turn');
+
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
@@ -81,6 +97,10 @@ function four(){
     var choice = document.getElementById('xo4');
     var turn = document.getElementById('turn');
 
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
+
     if(counter%2 == 0){
         choice.innerHTML = "X";
         turn.innerHTML = "O";
@@ -102,6 +122,10 @@ function four(){
 function five(){
     var choice = document.getElementById('xo5');
     var turn = document.getElementById('turn');
+
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
@@ -125,6 +149,10 @@ function six(){
     var choice = document.getElementById('xo6');
     var turn = document.getElementById('turn');
 
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
+
     if(counter%2 == 0){
         choice.innerHTML = "X";
         turn.innerHTML = "O";
@@ -145,6 +173,10 @@ function six(){
 function seven(){
     var choice = document.getElementById('xo7');
     var turn = document.getElementById('turn');
+
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
@@ -168,6 +200,10 @@ function eight(){
     var choice = document.getElementById('xo8');
     var turn = document.getElementById('turn');
 
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
+
     if(counter%2 == 0){
         choice.innerHTML = "X";
         turn.innerHTML = "O";
@@ -190,6 +226,10 @@ function nine(){
     var choice = document.getElementById('xo9');
     var turn = document.getElementById('turn');
 
+    if(choice.innerHTML === "X" || choice.innerHTML === "O"){
+        return;
+    }
+
     if(counter%2 == 0){
         choice.innerHTML = "X";
         turn.innerHTML = "O";
@@ -211,19 +251,22 @@ function nine(){
 };
 
 function newGame() {
-    // var boxes = document.getElementsByClassName('xo');
-    // for (var i = 0; i < boxes.length; i++) {
-    //     boxes[i].innerHTML = &#8203;
-    // }
-    // var seen1 = false;
-    // var seen2 = false;
-    // var seen3 = false;
-    // var seen4 = false;
-    // var seen5 = false;
-    // var seen6 = false;
-    // var seen7 = false;
-    // var seen8 = false;
-    // var seen9 = false;
+    var boxes = document.getElementsByClassName('xo');
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].innerHTML = "&#8203";
+    }
+    counter = 0;
+    var gom = document.getElementById('go');
+    gom.innerHTML = "It's your turn, X.";
+    var seen1 = false;
+    var seen2 = false;
+    var seen3 = false;
+    var seen4 = false;
+    var seen5 = false;
+    var seen6 = false;
+    var seen7 = false;
+    var seen8 = false;
+    var seen9 = false;
 };
 
 function resetGame() {
