@@ -2,18 +2,24 @@ var counter = 0;
 var scoreX = 0;
 var scoreO = 0;
 
-var seen1 = false;
-var seen2 = false;
-var seen3 = false;
-var seen4 = false;
-var seen5 = false;
-var seen6 = false;
-var seen7 = false;
-var seen8 = false;
-var seen9 = false;
+var onev = '';
+var twov = '';
+var threev = '';
+var fourv = '';
+var fivev = '';
+var sixv = '';
+var sevenv = '';
+var eightv = '';
+var ninev = '';
+var tenv = '';
 
 function checkWin(){
-
+    if ((onev === twov === threev)){
+        var gom = document.getElementById('go');
+        gom.innerHTML = "X wins!";
+        return true;
+    }
+    return false;
 };
 
 function one(){
@@ -26,16 +32,24 @@ function one(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        onev = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        onev = 'O';
         turn.innerHTML = "X";
     }
     console.log(counter);
     seen1 = true;
 
-    if(counter == 8){
+    if(checkWin()){
+        scoreX += 1;
+        var gom = document.getElementById('go');
+        gom.innerHTML = "X wins!";
+    }
+
+    else if(counter == 8){
         var gom = document.getElementById('go');
         gom.innerHTML = "Game over.";
     }
@@ -53,10 +67,12 @@ function two(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        twov = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        twov = 'O';
         turn.innerHTML = "X";
     }
     seen2 = true;
@@ -79,10 +95,12 @@ function three(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        threev = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        threev = 'O';
         turn.innerHTML = "X";
     }
     seen3 = true;
@@ -105,10 +123,12 @@ function four(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        fourv = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        fourv = 'O';
         turn.innerHTML = "X";
     }
     seen4 = true;
@@ -131,10 +151,12 @@ function five(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        fivev = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        fivev = 'O';
         turn.innerHTML = "X";
     }
     seen5 = true;
@@ -157,10 +179,12 @@ function six(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        sixv = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        sixv = 'O';
         turn.innerHTML = "X";
     }
     seen6 = true;
@@ -182,10 +206,12 @@ function seven(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        sevenv = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        sevenv = 'O';
         turn.innerHTML = "X";
     }
     seen7 = true;
@@ -208,10 +234,12 @@ function eight(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
+        eightv = 'X';
         turn.innerHTML = "O";
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
+        eightv = 'O';
         turn.innerHTML = "X";
     }
     seen8 = true;
@@ -234,17 +262,23 @@ function nine(){
 
     if(counter%2 == 0){
         choice.innerHTML = "X";
-        turn.innerHTML = "O";
+        ninev = 'X';
+        if(counter < 8){
+            turn.innerHTML = "O";
+        }
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
-        turn.innerHTML = "X";
+        ninev = 'O';
+        if(counter < 8){
+            turn.innerHTML = "X";
+        }
     }
     
     seen9 = true;
 
     if(counter == 8){
-        var gom = document.getElementById('go');
+        var gom = document.getElementById('gameover');
         gom.innerHTML = "Game over.";
     }
 
@@ -259,24 +293,21 @@ function newGame() {
     }
     counter = 0;
     var gom = document.getElementById('go');
-    gom.innerHTML = "It's your turn, X.";
-    var seen1 = false;
-    var seen2 = false;
-    var seen3 = false;
-    var seen4 = false;
-    var seen5 = false;
-    var seen6 = false;
-    var seen7 = false;
-    var seen8 = false;
-    var seen9 = false;
+    //gom.innerHTML = "It's your turn, X.";
 };
 
 function resetGame() {
+    var boxes = document.getElementsByClassName('xo');
     var sX = document.getElementById('display_scoreX');
     var sO = document.getElementById('display_scoreO');
 
     sX.innerHTML = '0';
     sO.innerHTML = '0';
 
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].innerHTML = "&#8203";
+    }
 
+    scoreX = 0;
+    scoreO = 0;
 };
