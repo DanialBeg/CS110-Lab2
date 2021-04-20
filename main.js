@@ -2,6 +2,7 @@ var counter = 0;
 var scoreX = 0;
 var scoreO = 0;
 var gamewon = false;
+var playermoves = [];
 
 var onev = '';
 var twov = '';
@@ -178,6 +179,7 @@ function one(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('1');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -216,6 +218,7 @@ function two(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('2');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -251,6 +254,7 @@ function three(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('3');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -286,6 +290,7 @@ function four(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('4');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -321,6 +326,7 @@ function five(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('5');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -356,6 +362,7 @@ function six(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('6');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -390,6 +397,7 @@ function seven(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('7');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -425,6 +433,7 @@ function eight(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('8');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -460,6 +469,7 @@ function nine(){
         if(counter < 8){
             turn.innerHTML = "O";
         }
+        playermoves.push('9');
     }
     else if(counter%2 != 0){
         choice.innerHTML = "O";
@@ -513,6 +523,7 @@ function newGame() {
     gom.innerHTML = "";
     turn.innerHTML = 'X';
     gamewon = false;
+    playermoves = [];
 };
 
 function resetGame() {
@@ -540,4 +551,59 @@ function resetGame() {
     // counter = 0;
     // gamewon = false;
     // turn.innerHTML = 'X';
+};
+
+function aiPlay() {
+    var availMoves = ['1','2','3','4','5','6','7','8','9'];
+    var aimoves = [];
+    var match = false;
+
+    for(var i = 0; i < availMoves.length; i++){
+        match = false;
+        for(var j = 0; j < playermoves.length; j++){
+            if(availMoves[i] === playermoves[j]){
+                match = true;
+            }
+        }
+        if(!match){
+            aimoves.push(availMoves[i]);
+        }
+    }
+
+    //var aimoves = availMoves.filter(x => playermoves.includes(x));
+    var rand = Math.floor(Math.random()*aimoves.length)
+    console.log('AI');
+    console.log(aimoves);
+    rand = aimoves[rand];
+    playermoves.push(rand);
+
+    // console.log('AI');
+    // console.log(rand);
+
+    if(gamewon === true){
+        playermoves = [];
+        return;
+    }
+    
+    if(counter%2 != 0) {
+        if(rand == '1') {
+            one();
+        }else if(rand == '2'){
+            two();
+        }else if(rand == '3'){
+            three();
+        }else if(rand == '4'){
+            four();
+        }else if(rand == '5'){
+            five();
+        }else if(rand == '6'){
+            six();
+        }else if(rand == '7'){
+            seven();
+        }else if(rand == '8'){
+            eight();
+        }else if(rand == '9'){
+            nine();
+        }
+    }
 };
