@@ -1,4 +1,6 @@
 var counter = 0;
+var scoreX = 0;
+var scoreO = 0;
 
 var seen1 = false;
 var seen2 = false;
@@ -227,5 +229,11 @@ function newGame() {
 };
 
 function resetGame() {
-    
+    var sX = document.getElementById('display_scoreX');
+    var sO = document.getElementById('display_scoreO');
+
+    sX.innerHTML = '0';
+    sO.innerHTML = '0';
+
+
 };
